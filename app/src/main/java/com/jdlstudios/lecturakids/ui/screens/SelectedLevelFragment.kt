@@ -7,24 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.jdlstudios.lecturakids.R
-import com.jdlstudios.lecturakids.databinding.FragmentInicioBinding
+import com.jdlstudios.lecturakids.databinding.FragmentSelectedLevelBinding
 
-class InicioFragment : Fragment() {
+class SelectedLevelFragment : Fragment() {
 
-    private lateinit var binding: FragmentInicioBinding
+    private lateinit var binding: FragmentSelectedLevelBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInicioBinding.inflate(inflater)
+        binding = FragmentSelectedLevelBinding.inflate(inflater)
 
         binding.btnStart.setOnClickListener {
-            it.findNavController().navigate(R.id.action_inicioFragment_to_selectedLevelFragment)
-        }
-
-        binding.btnStInformation.setOnClickListener {
-            it.findNavController().navigate(R.id.action_inicioFragment_to_informationFragment)
+            it.findNavController().navigate(R.id.action_selectedLevelFragment_to_readingFragment)
         }
 
         return binding.root
