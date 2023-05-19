@@ -7,23 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.jdlstudios.lecturakids.R
-import com.jdlstudios.lecturakids.databinding.FragmentReadingBinding
-import com.jdlstudios.lecturakids.databinding.FragmentSelectedLevelBinding
+import com.jdlstudios.lecturakids.databinding.FragmentQuestionsBinding
 
-class ReadingFragment : Fragment() {
+class QuestionsFragment : Fragment() {
 
-    private lateinit var binding: FragmentReadingBinding
+    private lateinit var binding: FragmentQuestionsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentReadingBinding.inflate(inflater)
+        binding = FragmentQuestionsBinding.inflate(inflater)
 
-        binding.btnSiguiente.setOnClickListener {
-            it.findNavController().navigate(R.id.action_readingFragment_to_questionsFragment)
+        binding.btnEnviar.setOnClickListener {
+            it.findNavController().navigate(R.id.action_questionsFragment_to_endReadingFragment)
         }
-
         return binding.root
     }
 
