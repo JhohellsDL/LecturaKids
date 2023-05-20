@@ -3,67 +3,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.screens.QuestionsFragment">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/questionImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_launcher_foreground"/>
+
+        <TextView
+            android:id="@+id/title_reading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Mi Gato Travieso"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/questionImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width = "0dp"
+            android:layout_height="wrap_content"
+            tools:text="¿Cómo es el pelaje de Max?"
+            android:textSize="18sp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/title_reading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <RadioGroup
+            android:id="@+id/questionRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/questionText">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Preguntas"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
-
-            <!-- Agrega aquí tus elementos de preguntas, por ejemplo: -->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pregunta 1"
-                android:textSize="18sp"
-                android:layout_marginBottom="8dp" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Opción 1" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Opción 2" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Opción 3" />
-
-            </RadioGroup>
-
-            <!-- Agrega más elementos de preguntas según tus necesidades -->
-
-            <Button
+            <RadioButton
+                android:id="@+id/firstAnswerRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enviar"
-                android:textColor="@color/white"
-                android:id="@+id/btnEnviar" />
+                android:checked="true"
+                android:text="Opción 1" />
 
-        </LinearLayout>
+            <RadioButton
+                android:id="@+id/secondAnswerRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Opción 2" />
 
-    </ScrollView>
+            <RadioButton
+                android:id="@+id/thirdAnswerRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Opción 3" />
+
+            <RadioButton
+                android:id="@+id/fourthAnswerRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Opción 4" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:textColor="@color/white"
+            android:id="@+id/btnEnviar"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/questionRadioGroup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

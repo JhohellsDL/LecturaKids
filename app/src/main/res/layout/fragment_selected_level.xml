@@ -3,57 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.screens.SelectedLevelFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp"
-        tools:context=".SeleccionNivelFragment">
+        android:padding="16dp">
 
         <TextView
+            android:id="@+id/label_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecciona un nivel:"
+            android:layout_marginBottom="16dp"
+            android:text="@string/select_a_level"
             android:textSize="18sp"
-            android:layout_marginBottom="16dp" />
+            app:layout_constraintBottom_toTopOf="@id/radioGroupLevels"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <RadioGroup
+            android:id="@+id/radioGroupLevels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/radioGroupLevels">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <RadioButton
+                android:id="@+id/radioButtonLevelBeginner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nivel 1"
-                android:id="@+id/radioButtonLevel1" />
+                android:text="@string/beginner" />
 
             <RadioButton
+                android:id="@+id/radioButtonLevelIntermediate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nivel 2"
-                android:id="@+id/radioButtonLevel2" />
+                android:text="@string/intermediate" />
 
             <RadioButton
+                android:id="@+id/radioButtonLevelAdvanced"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nivel 3"
-                android:id="@+id/radioButtonLevel3" />
+                android:text="@string/advanced" />
 
         </RadioGroup>
 
         <Button
+            android:id="@+id/btnStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Empezar"
-            android:textColor="@color/white"
             android:layout_marginTop="32dp"
-            android:id="@+id/btnStart" />
+            android:text="@string/reading"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupLevels"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
