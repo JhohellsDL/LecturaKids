@@ -53,12 +53,21 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/btnStart"
+            android:id="@+id/btnStartRandom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/reading"
+            android:text="@string/reading_random"
             app:layout_constraintTop_toBottomOf="@id/radioGroupLevels"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <Button
+            android:id="@+id/btnStartSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/reading_selected"
+            app:layout_constraintTop_toBottomOf="@id/btnStartRandom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
