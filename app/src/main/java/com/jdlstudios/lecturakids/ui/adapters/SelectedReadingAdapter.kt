@@ -1,12 +1,11 @@
 package com.jdlstudios.lecturakids.ui.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
+import com.jdlstudios.lecturakids.databinding.ItemReadingBinding
 import com.jdlstudios.lecturakids.domain.models.ReadingItem
 import com.jdlstudios.lecturakids.domain.usescases.GetListReadingBeginnerUseCase
 
@@ -18,9 +17,9 @@ class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewH
 
     var data = getListReadingBeginnerUseCase.invoke()
 
-    class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder private constructor(binding: ItemReadingBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        private val textTitle: TextView = itemView.findViewById(R.id.text_title)
+        private val textTitle: TextView = binding.textTitle
 
         fun bind(item: ReadingItem) {
             textTitle.text = item.title
@@ -29,8 +28,8 @@ class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewH
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.item_reading, parent, false)
-                return ViewHolder(view)
+                val binding = ItemReadingBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
             }
         }
     }
