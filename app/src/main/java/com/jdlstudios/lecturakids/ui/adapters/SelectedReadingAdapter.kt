@@ -9,7 +9,11 @@ import com.jdlstudios.lecturakids.databinding.ItemReadingBinding
 import com.jdlstudios.lecturakids.domain.models.ReadingItem
 import com.jdlstudios.lecturakids.domain.usescases.GetListReadingBeginnerUseCase
 
-class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewHolder>() {
+class SelectedReadingAdapter(
+
+    private val onClickListener: (ReadingItem) -> Unit
+
+) : RecyclerView.Adapter<SelectedReadingAdapter.ViewHolder>() {
 
     private var readingBeginnerProvider: ReadingBeginnerProvider = ReadingBeginnerProvider()
     private var getListReadingBeginnerUseCase: GetListReadingBeginnerUseCase =
@@ -17,12 +21,17 @@ class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewH
 
     var data = getListReadingBeginnerUseCase.invoke()
 
-    class ViewHolder private constructor(binding: ItemReadingBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(binding: ItemReadingBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         private val textTitle: TextView = binding.textTitle
 
-        fun bind(item: ReadingItem) {
+        fun bind(
+            item: ReadingItem,
+            onClickListener: (ReadingItem) -> Unit
+        ) {
             textTitle.text = item.title
+            itemView.setOnClickListener { onClickListener(item) }
         }
 
         companion object {
@@ -44,6 +53,6 @@ class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        holder.bind(item)
+        holder.bind(item, onClickListener)
     }
 }

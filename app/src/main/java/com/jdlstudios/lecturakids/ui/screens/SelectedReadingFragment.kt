@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -45,7 +46,11 @@ class SelectedReadingFragment : Fragment() {
 
         Snackbar.make(binding.root, "Level : $level", Snackbar.LENGTH_SHORT).show()
 
-        val adapter = SelectedReadingAdapter()
+        val adapter = SelectedReadingAdapter(
+            onClickListener ={
+                Toast.makeText(requireContext(), "Item: ${it.title}", Toast.LENGTH_SHORT).show()
+            }
+        )
 
         when(level){
             1 -> adapter.data = getListReadingBeginnerUseCase.invoke()
