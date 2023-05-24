@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
+import com.jdlstudios.lecturakids.databinding.FragmentReadingBinding
 import com.jdlstudios.lecturakids.databinding.FragmentSelectedLevelBinding
 import com.jdlstudios.lecturakids.domain.models.ReadingItem
 import com.jdlstudios.lecturakids.domain.usescases.GetRandomReadingBeginnerUseCase
@@ -63,7 +64,10 @@ class SelectedLevelFragment : Fragment() {
         }
 
         binding.btnStartSelected.setOnClickListener {
-            it.findNavController().navigate(R.id.action_selectedLevelFragment_to_selectedReadingFragment)
+            val reading: ReadingItem = getRandomReadingBeginnerUseCase.invoke()
+            val id = reading.id
+            val action = SelectedLevelFragmentDirections.actionSelectedLevelFragmentToReadingFragment(level, id)
+            it.findNavController().navigate(action)
         }
 
         return binding.root
