@@ -7,6 +7,7 @@ class ReadingBeginnerProvider {
     fun loadReadingBeginner(): List<ReadingItem> {
         return listOf(
             ReadingItem(
+                id = 1,
                 title = "Reading Beginner 1",
                 reading = "Content of reading 1",
                 questions = listOf(
@@ -17,6 +18,7 @@ class ReadingBeginnerProvider {
                 )
             ),
             ReadingItem(
+                id = 2,
                 title = "Reading Beginner 2",
                 reading = "Content of reading 2",
                 questions = listOf(
@@ -27,6 +29,7 @@ class ReadingBeginnerProvider {
                 )
             ),
             ReadingItem(
+                id = 3,
                 title = "Reading Beginner 3",
                 reading = "Content of reading 3",
                 questions = listOf(

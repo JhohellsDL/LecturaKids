@@ -6,6 +6,7 @@ class ReadingIntermediateProvider {
     fun loadReadingIntermediate(): List<ReadingItem> {
         return listOf(
             ReadingItem(
+                id = 1,
                 title = "Reading Intermediate 1",
                 reading = "Content of reading 1",
                 questions = listOf(
@@ -16,6 +17,7 @@ class ReadingIntermediateProvider {
                 )
             ),
             ReadingItem(
+                id = 2,
                 title = "Reading Intermediate 2",
                 reading = "Content of reading 2",
                 questions = listOf(
@@ -26,6 +28,7 @@ class ReadingIntermediateProvider {
                 )
             ),
             ReadingItem(
+                id = 3,
                 title = "Reading Intermediate 3",
                 reading = "Content of reading 3",
                 questions = listOf(

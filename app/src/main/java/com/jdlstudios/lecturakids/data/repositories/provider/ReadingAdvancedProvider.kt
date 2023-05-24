@@ -6,6 +6,7 @@ class ReadingAdvancedProvider {
     fun loadReadingAdvanced(): List<ReadingItem> {
         return listOf(
             ReadingItem(
+                id = 1,
                 title = "Reading Advanced 1",
                 reading = "Content of reading 1",
                 questions = listOf(
@@ -16,6 +17,7 @@ class ReadingAdvancedProvider {
                 )
             ),
             ReadingItem(
+                id = 2,
                 title = "Reading Advanced 2",
                 reading = "Content of reading 2",
                 questions = listOf(
@@ -26,6 +28,7 @@ class ReadingAdvancedProvider {
                 )
             ),
             ReadingItem(
+                id = 3,
                 title = "Reading Advanced 3",
                 reading = "Content of reading 3",
                 questions = listOf(

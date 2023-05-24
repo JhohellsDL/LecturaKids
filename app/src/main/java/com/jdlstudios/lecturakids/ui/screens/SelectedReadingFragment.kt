@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -48,6 +49,10 @@ class SelectedReadingFragment : Fragment() {
 
         val adapter = SelectedReadingAdapter(
             onClickListener ={
+
+                val action = SelectedReadingFragmentDirections.actionSelectedReadingFragmentToReadingFragment(level, it.id)
+                this.findNavController().navigate(action)
+
                 Toast.makeText(requireContext(), "Item: ${it.title}", Toast.LENGTH_SHORT).show()
             }
         )

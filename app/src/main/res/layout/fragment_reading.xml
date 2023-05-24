@@ -16,6 +16,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/text_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mi gato travieso"
@@ -24,6 +25,7 @@
                 android:layout_marginBottom="16dp" />
 
             <TextView
+                android:id="@+id/text_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/contenido_lectura_ejemplo"
