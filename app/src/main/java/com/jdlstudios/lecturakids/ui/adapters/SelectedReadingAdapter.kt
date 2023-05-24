@@ -18,19 +18,25 @@ class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewH
 
     var data = getListReadingBeginnerUseCase.invoke()
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val textTitle: TextView = itemView.findViewById(R.id.text_title)
+        private val textTitle: TextView = itemView.findViewById(R.id.text_title)
 
-        private fun ViewHolder.bind(item: ReadingItem) {
+        fun bind(item: ReadingItem) {
+            textTitle.text = item.title
+        }
 
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val view = layoutInflater.inflate(R.layout.item_reading, parent, false)
+                return ViewHolder(view)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_reading, parent, false)
-        return ViewHolder(view)
+        return ViewHolder.from(parent)
     }
 
     override fun getItemCount(): Int {
@@ -39,14 +45,6 @@ class SelectedReadingAdapter : RecyclerView.Adapter<SelectedReadingAdapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        bind(holder, item)
+        holder.bind(item)
     }
-
-    fun bind(
-        holder: ViewHolder,
-        item: ReadingItem
-    ) {
-        holder.textTitle.text = item.title
-    }
-
 }
