@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingAdvancedProvider
@@ -53,6 +54,9 @@ class SelectedReadingFragment : Fragment() {
         }
 
         binding.recyclerViewReading.adapter = adapter
+
+        val manager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
+        binding.recyclerViewReading.layoutManager = manager
 
         return binding.root
     }
