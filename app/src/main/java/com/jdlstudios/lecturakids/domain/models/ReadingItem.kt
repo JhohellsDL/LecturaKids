@@ -4,5 +4,5 @@ data class ReadingItem(
     val id: Int = 0,
     val title: String = "",
     val reading: String = "",
-    val questions: List<String> = listOf()
+    val questions: List<QuestionItem> = listOf()
 )

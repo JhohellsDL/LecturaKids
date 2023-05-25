@@ -41,7 +41,8 @@ class ReadingFragment : Fragment() {
         binding.textTitle.text = reading.title
 
         binding.btnSiguiente.setOnClickListener {
-            it.findNavController().navigate(R.id.action_readingFragment_to_questionsFragment)
+            val action = ReadingFragmentDirections.actionReadingFragmentToQuestionsFragment(level, id)
+            it.findNavController().navigate(action)
         }
 
         return binding.root

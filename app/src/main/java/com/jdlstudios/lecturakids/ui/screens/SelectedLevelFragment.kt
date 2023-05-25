@@ -59,14 +59,14 @@ class SelectedLevelFragment : Fragment() {
 
 
         binding.btnStartRandom.setOnClickListener {
-            val action = SelectedLevelFragmentDirections.actionSelectedLevelFragmentToSelectedReadingFragment(level)
+            val reading: ReadingItem = getRandomReadingBeginnerUseCase.invoke()
+            val id = reading.id
+            val action = SelectedLevelFragmentDirections.actionSelectedLevelFragmentToReadingFragment(level, id)
             it.findNavController().navigate(action)
         }
 
         binding.btnStartSelected.setOnClickListener {
-            val reading: ReadingItem = getRandomReadingBeginnerUseCase.invoke()
-            val id = reading.id
-            val action = SelectedLevelFragmentDirections.actionSelectedLevelFragmentToReadingFragment(level, id)
+            val action = SelectedLevelFragmentDirections.actionSelectedLevelFragmentToSelectedReadingFragment(level)
             it.findNavController().navigate(action)
         }
 
