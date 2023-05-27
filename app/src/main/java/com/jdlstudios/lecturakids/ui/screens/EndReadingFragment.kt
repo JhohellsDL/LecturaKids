@@ -22,8 +22,9 @@ class EndReadingFragment : Fragment() {
         binding = FragmentEndReadingBinding.inflate(inflater)
 
         val safeArgs: EndReadingFragmentArgs by navArgs()
-        val answersCorrect: Int = safeArgs.endingItem.answersCorrect
-        Log.i("lectura","answers: $answersCorrect")
+
+        binding.textTime.text = safeArgs.endingItem.time.toString()
+        binding.textAnswerCorrects.text = safeArgs.endingItem.answersCorrect.toString()
 
         binding.btnTerminar.setOnClickListener {
             it.findNavController().navigate(R.id.action_endReadingFragment_to_informationFragment)

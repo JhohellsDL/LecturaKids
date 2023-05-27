@@ -65,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:text="Respuestas Correctas"/>
                     <TextView
-                        android:id="@+id/txtbien"
+                        android:id="@+id/text_answer_corrects"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:text="Tiempo de Lectura"/>
                     <TextView
-                        android:id="@+id/txtHoraLectura"
+                        android:id="@+id/text_time"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
