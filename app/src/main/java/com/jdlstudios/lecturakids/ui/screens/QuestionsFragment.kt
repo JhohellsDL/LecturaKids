@@ -14,9 +14,11 @@ import com.jdlstudios.lecturakids.data.repositories.provider.ReadingAdvancedProv
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingIntermediateProvider
 import com.jdlstudios.lecturakids.databinding.FragmentQuestionsBinding
+import com.jdlstudios.lecturakids.domain.models.EndingItem
 import com.jdlstudios.lecturakids.domain.models.QuestionItem
 import com.jdlstudios.lecturakids.domain.models.ReadingItem
 import com.jdlstudios.lecturakids.domain.usescases.GetReadingUseCase
+import com.jdlstudios.lecturakids.domain.utils.StopWatch
 
 class QuestionsFragment : Fragment() {
 
@@ -34,13 +36,30 @@ class QuestionsFragment : Fragment() {
     ): View {
         binding = FragmentQuestionsBinding.inflate(inflater)
 
-        val safeArgs: ReadingFragmentArgs by navArgs()
+        val safeArgs: QuestionsFragmentArgs by navArgs()
         val level = safeArgs.level
         val id = safeArgs.id
 
-        binding.btnEnviar.setOnClickListener {
-            it.findNavController().navigate(R.id.action_questionsFragment_self)
+        var answersCorrect: Int = 0
+        val score: Int = 0
+        var time: Int = 0
+
+
+        // Uso del cronómetro
+        val stopWatch = StopWatch { tiempoTranscurrido ->
+            val secondsElapsed = tiempoTranscurrido / 1000
+            time = secondsElapsed.toInt()
+            Log.i("lectura","Segundos transcurridos: $secondsElapsed")
         }
+        stopWatch.start()
+        /*val stopwatch = Cronometro()
+
+        stopwatch.start()
+
+        Log.i("lectura","Tiempo inicio: ${stopwatch.getElapsedTime()} ms")*/
+
+// Realiza algunas operaciones o espera un tiempo...
+
 
         val reading: ReadingItem = getReadingUseCase.invoke(level, (id-1))
         val listQuestions: List<QuestionItem> = reading.questions
@@ -48,7 +67,7 @@ class QuestionsFragment : Fragment() {
         Log.i("lectura", "questions: ${listQuestions.size}")
 
         var currentQuestion: String = listQuestions[0].question
-        var answerCorrect = listQuestions[0].options[0]
+        var listAnswersCorrect = listQuestions[0].options[0]
         var answerUser = ""
         var listOptionsQuestion: List<String> = listQuestions[0].options.shuffled()
         binding.firstAnswerRadioButton.text = listOptionsQuestion[0]
@@ -94,11 +113,12 @@ class QuestionsFragment : Fragment() {
         }
 
         binding.btnEnviar.setOnClickListener {
-            if (answerCorrect == answerUser){
-                Log.i("lectura", "answer: $answerCorrect -> $answerUser")
+            if (listAnswersCorrect == answerUser){
+                Log.i("lectura", "answer: $listAnswersCorrect -> $answerUser")
+                answersCorrect ++
                 Toast.makeText(requireContext(), "Correct", Toast.LENGTH_SHORT).show()
             }else{
-                Log.i("lectura", "answer: $answerCorrect -> $answerUser")
+                Log.i("lectura", "answer: $listAnswersCorrect -> $answerUser")
                 Toast.makeText(requireContext(), "Incorrect", Toast.LENGTH_SHORT).show()
             }
             position += 1
@@ -107,7 +127,7 @@ class QuestionsFragment : Fragment() {
 
                 currentQuestion = listQuestions[position].question
                 binding.questionText.text = currentQuestion.toString()
-                answerCorrect = listQuestions[position].options[0]
+                listAnswersCorrect = listQuestions[position].options[0]
                 listOptionsQuestion = listQuestions[position].options.shuffled()
                 binding.firstAnswerRadioButton.text = listOptionsQuestion[0]
                 binding.secondAnswerRadioButton.text = listOptionsQuestion[1]
@@ -115,10 +135,11 @@ class QuestionsFragment : Fragment() {
                 binding.fourthAnswerRadioButton.text = listOptionsQuestion[3]
 
             }else{
-                it.findNavController().navigate(R.id.action_questionsFragment_to_endReadingFragment)
+                stopWatch.stop()
+                val endingItem = EndingItem(answersCorrect = answersCorrect, time = time, score = score)
+                val action = QuestionsFragmentDirections.actionQuestionsFragmentToEndReadingFragment(endingItem)
+                it.findNavController().navigate(action)
             }
-
-
 
         }
 

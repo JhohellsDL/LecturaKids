@@ -60,6 +60,9 @@
             app:destination="@id/informationFragment"
             app:popUpTo="@id/endReadingFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="ending_item"
+            app:argType="com.jdlstudios.lecturakids.domain.models.EndingItem" />
     </fragment>
     <fragment
         android:id="@+id/informationFragment"
@@ -80,11 +83,6 @@
         <action
             android:id="@+id/action_questionsFragment_to_endReadingFragment"
             app:destination="@id/endReadingFragment"
-            app:popUpTo="@id/questionsFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_questionsFragment_self"
-            app:destination="@id/questionsFragment"
             app:popUpTo="@id/questionsFragment"
             app:popUpToInclusive="true" />
         <argument
