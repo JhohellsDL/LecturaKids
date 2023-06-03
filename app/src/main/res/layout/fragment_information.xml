@@ -57,5 +57,12 @@
             android:textColor="@color/white"
             android:id="@+id/btnVolver" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_reading_information"/>
+
     </LinearLayout>
 </FrameLayout>
