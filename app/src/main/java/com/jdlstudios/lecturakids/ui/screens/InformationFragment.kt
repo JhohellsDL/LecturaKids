@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.jdlstudios.lecturakids.LecturaApplication
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.AppDatabase
 import com.jdlstudios.lecturakids.databinding.FragmentInformationBinding
@@ -26,12 +28,16 @@ class InformationFragment : Fragment() {
 
         //--------------------------------- Para el VIEWMODEL --------------------------------------------------------------
         val application = requireNotNull(this.activity).application
-        val datasource = AppDatabase.getDatabase(application).readingDao()
+        //val datasource = AppDatabase.getDatabase(application).readingDao()
 
-        val viewModelFactory = InformationViewModelFactory(datasource)
-
-        val viewModel = ViewModelProvider(this, viewModelFactory)[InformationViewModel::class.java]
+        val viewModel: InformationViewModel by viewModels {
+            InformationViewModelFactory((application as LecturaApplication).repository)
+        }
         //-------------------------------------------------------------------------------------------------------------------
+
+        viewModel.allReadings.observe(viewLifecycleOwner){
+            Log.i("lectura","--- $it")
+        }
 
 
 

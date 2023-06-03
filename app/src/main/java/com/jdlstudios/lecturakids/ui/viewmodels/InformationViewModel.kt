@@ -1,6 +1,8 @@
 package com.jdlstudios.lecturakids.ui.viewmodels
 
 import android.app.Application
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jdlstudios.lecturakids.data.AppDatabase
@@ -13,28 +15,35 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class InformationViewModel(
-    readingDao: ReadingDao
+    private val repository: ReadingRepository
 ) : ViewModel() {
 
-    private val repository: ReadingRepository = ReadingRepository(readingDao)
-
-    private var allReadings: List<ReadingEntity> = listOf()
+    private var _allReadings = MutableLiveData<List<ReadingEntity>>()
+    val allReadings: LiveData<List<ReadingEntity>>
+        get() = _allReadings
 
     //-----------------------------------para coroutinas------------------------------------------------
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     //--------------------------------------------------------------------------------------------------
 
-    fun getList(){
+    init {
+        getList()
+    }
+
+    fun getList() {
         uiScope.launch {
-            getListReadings()
+            repository.getAllReadings().let {
+                _allReadings.value = it
+            }
         }
     }
-    private suspend fun getListReadings(){
-        viewModelScope.launch(Dispatchers.IO) {
+
+    /*private suspend fun getListReadings() {
+        viewModelScope.launch {
             allReadings = repository.getAllReadings()
         }
-    }
+    }*/
 
     fun insert(reading: ReadingEntity) {
         viewModelScope.launch(Dispatchers.IO) {
