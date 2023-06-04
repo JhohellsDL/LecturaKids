@@ -2,8 +2,9 @@
     <string name="app_name">LecturaKids</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="get_started">Get Started!</string>
+    <string name="get_started">Comenzemos!</string>
     <string name="information">Information</string>
+    <string name="registro">Registro de Lecturas</string>
     <string name="beginner">Beginner</string>
     <string name="intermediate">Intermediate</string>
     <string name="advanced">Advanced</string>
@@ -21,6 +22,8 @@ A Max le gusta explorar y jugar por toda la casa. Un día, encontró una bola de
 
 \n\nEspero que te haya gustado conocer a mi gato travieso, Max. ¡Hasta la próxima!</string>
     <string name="reading_selected">Reading Selected</string>
+    <string name="app_description">Una aplicación educativa diseñada para mejorar las habilidades de lectura de los niños mediante actividades interactivas y entretenidas.</string>
+    <string name="name_app">LecturaKids</string>
 
 
 </resources>

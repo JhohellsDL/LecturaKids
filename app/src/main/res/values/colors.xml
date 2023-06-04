@@ -17,7 +17,23 @@
     <color name="accent2">#4CAF50</color>-->
 
 
-    <color name="colorPrimary">#FF5722</color>
+    <color name="colorPrimary">#6A49C6</color>
+    <color name="colorPrimaryDark">#5B37AF</color>
+    <color name="colorAccent">#F44E87</color>
+
+    <color name="textTitle2">#FBFBFB</color>
+    <color name="textBody2">#EC93B1</color>
+
+    <color name="textTitle">#212121</color>
+    <color name="textBody">#757575</color>
+
+    <color name="backgroundPrimary">#FFFFFF</color>
+    <color name="backgroundSecondary">#F5F5F5</color>
+
+    <color name="accent1">#FFB12A</color>
+    <color name="accent2">#5FC563</color>
+
+    <!--<color name="colorPrimary">#FF5722</color>
     <color name="colorPrimaryDark">#E64A19</color>
     <color name="colorAccent">#4CAF50</color>
 
@@ -28,5 +44,5 @@
     <color name="backgroundSecondary">#F5F5F5</color>
 
     <color name="accent1">#FFC107</color>
-    <color name="accent2">#2196F3</color>
+    <color name="accent2">#2196F3</color>-->
 </resources>
