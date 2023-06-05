@@ -74,7 +74,7 @@ class QuestionsFragment : Fragment() {
         binding.secondAnswerRadioButton.text = listOptionsQuestion[1]
         binding.thirdAnswerRadioButton.text = listOptionsQuestion[2]
         binding.fourthAnswerRadioButton.text = listOptionsQuestion[3]
-        binding.titleReading.text = reading.title
+        binding.readingTitleQuestions.text = reading.title
 
         Log.i("lectura", "currentQuestion: $currentQuestion")
 
