@@ -9,7 +9,7 @@ data class ReadingEntity(
     val id: Long = 0,
     val title: String,
     val date: String,
-    val time: Long,
+    val time: String,
     val answerCorrects: Int,
     val score: Int
 )

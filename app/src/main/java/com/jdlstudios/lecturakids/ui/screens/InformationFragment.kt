@@ -2,17 +2,13 @@ package com.jdlstudios.lecturakids.ui.screens
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jdlstudios.lecturakids.LecturaApplication
-import com.jdlstudios.lecturakids.R
-import com.jdlstudios.lecturakids.data.AppDatabase
 import com.jdlstudios.lecturakids.databinding.FragmentInformationBinding
 import com.jdlstudios.lecturakids.ui.adapters.InformationAdapter
 import com.jdlstudios.lecturakids.ui.viewmodels.InformationViewModel
@@ -47,8 +43,6 @@ class InformationFragment : Fragment() {
                 adapter.submitList(it)
             }
         }
-
-
 
         binding.btnVolver.setOnClickListener {
             //viewModel.getList()

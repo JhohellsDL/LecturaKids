@@ -1,12 +1,9 @@
 package com.jdlstudios.lecturakids.ui.viewmodels
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jdlstudios.lecturakids.data.AppDatabase
-import com.jdlstudios.lecturakids.data.dao.ReadingDao
 import com.jdlstudios.lecturakids.data.entities.ReadingEntity
 import com.jdlstudios.lecturakids.data.repositories.ReadingRepository
 import kotlinx.coroutines.CoroutineScope
@@ -34,7 +31,7 @@ class InformationViewModel(
     fun getList() {
         uiScope.launch {
             repository.getAllReadings().let {
-                _allReadings.value = it
+                _allReadings.value = it.reversed()
             }
         }
     }

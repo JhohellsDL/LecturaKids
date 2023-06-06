@@ -60,7 +60,7 @@ abstract class AppDatabase : RoomDatabase() {
             val reading = ReadingEntity(
                 title = "as",
                 date = "asd",
-                time = 56,
+                time = "00:56",
                 answerCorrects = 4,
                 score = 50
             )
