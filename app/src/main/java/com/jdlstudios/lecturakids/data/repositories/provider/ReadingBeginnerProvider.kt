@@ -227,6 +227,138 @@ class ReadingBeginnerProvider {
                     )
                 ),
                 image = R.drawable.libro_de_lectura
+            ),
+            ReadingItem(
+                id = 5,
+                title = "La tortuga sabia",
+                reading = "Había una vez una tortuga llamada Teresa. Teresa era conocida en el bosque por su gran sabiduría. Los demás animales acudían a ella en busca de consejo. Un día, un conejito le preguntó a Teresa cómo podía ser más rápido. La tortuga respondió: 'La velocidad no es lo más importante, la constancia lo es'. Teresa le enseñó al conejito a disfrutar cada paso y a no compararse con los demás. Desde ese día, el conejito dejó de preocuparse por ser el más rápido y comenzó a disfrutar de cada salto. Teresa continuó compartiendo su sabiduría con los demás animales y todos aprendieron a valorar la importancia de la paciencia y la constancia.",
+                questions = listOf(
+                    QuestionItem(
+                        question = "¿Cuál es el nombre de la tortuga?",
+                        options = listOf(
+                            "Teresa",
+                            "Luna",
+                            "Pedro",
+                            "Sofía"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué buscaban los demás animales en Teresa?",
+                        options = listOf(
+                            "Consejo",
+                            "Comida",
+                            "Juegos",
+                            "Ropa"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué le enseñó Teresa al conejito?",
+                        options = listOf(
+                            "Disfrutar cada paso y no compararse",
+                            "Ser el más rápido",
+                            "Dormir todo el día",
+                            "No hacer ejercicio"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué aprendieron los demás animales de Teresa?",
+                        options = listOf(
+                            "Valorar la importancia de la paciencia y la constancia",
+                            "Ser impacientes y perezosos",
+                            "Competir entre ellos",
+                            "No escuchar consejos"
+                        )
+                    )
+                ),
+                image = R.drawable.libro_de_lectura
+            ),
+            ReadingItem(
+                id = 6,
+                title = "El viaje de la abejita",
+                reading = "Había una vez una abejita llamada Maya. Maya vivía en una colmena con muchas otras abejas. Un día, Maya decidió emprender un emocionante viaje fuera de la colmena para explorar el mundo. Voló entre los campos de flores, recogiendo néctar y polen. En su camino, conoció a una mariposa llamada Luna, un pájaro cantor llamado Pedro y una mariquita llamada Sofía. Juntos, vivieron aventuras y descubrieron lugares increíbles. Después de un tiempo, Maya decidió regresar a su colmena y compartir todas las historias y experiencias con sus amigas abejas. A partir de ese día, la colmena se llenó de entusiasmo y las abejas se animaron a explorar el mundo también.",
+                questions = listOf(
+                    QuestionItem(
+                        question = "¿Cuál es el nombre de la abejita?",
+                        options = listOf(
+                            "Maya",
+                            "Luna",
+                            "Pedro",
+                            "Sofía"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Con quiénes se encontró Maya en su viaje?",
+                        options = listOf(
+                            "Luna, Pedro y Sofía",
+                            "Luna, Pablo y Andrea",
+                            "Luis, Marta y Ana",
+                            "Carlos, Laura y Juan"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué recogía Maya en su viaje?",
+                        options = listOf(
+                            "Néctar y polen",
+                            "Hojas y ramitas",
+                            "Frutas y verduras",
+                            "Piedras y conchas"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué pasó en la colmena después del regreso de Maya?",
+                        options = listOf(
+                            "La colmena se llenó de entusiasmo y las abejas se animaron a explorar",
+                            "La colmena se quedó en silencio",
+                            "Las abejas se enojaron con Maya",
+                            "Maya se fue de la colmena"
+                        )
+                    )
+                ),
+                image = R.drawable.libro_de_lectura
+            ),
+            ReadingItem(
+                id = 7,
+                title = "El elefantito curioso",
+                reading = "Había una vez un elefantito llamado Pablito. Pablito era muy curioso y siempre hacía preguntas sobre todo lo que veía. Un día, mientras caminaba por la selva, vio un árbol con frutas de colores. Quería saber si eran deliciosas, así que decidió probar una. ¡Era deliciosa! Pablito estaba tan emocionado que comenzó a comer más y más frutas. Pronto, se dio cuenta de que había comido demasiado y su barriga estaba llena. No podía moverse. Pero no se preocupen, llegó su amiga la jirafa Gina, quien le dio un masaje en la barriga y lo ayudó a sentirse mejor. Desde ese día, Pablito siguió siendo curioso, pero aprendió a no excederse y a pedir ayuda cuando lo necesitaba.",
+                questions = listOf(
+                    QuestionItem(
+                        question = "¿Cuál es el nombre del elefantito?",
+                        options = listOf(
+                            "Pablito",
+                            "Luna",
+                            "Pedro",
+                            "Sofía"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué hizo Pablito cuando vio el árbol con frutas?",
+                        options = listOf(
+                            "Decidió probar una",
+                            "Lo ignoró",
+                            "Se alejó corriendo",
+                            "Llamó a su mamá"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Qué le pasó a Pablito después de comer muchas frutas?",
+                        options = listOf(
+                            "Su barriga se llenó y no podía moverse",
+                            "Se convirtió en un pájaro",
+                            "Se volvió invisible",
+                            "Se convirtió en una planta"
+                        )
+                    ),
+                    QuestionItem(
+                        question = "¿Quién ayudó a Pablito a sentirse mejor?",
+                        options = listOf(
+                            "Gina, la jirafa",
+                            "Pedro, el león",
+                            "Sofía, la mariposa",
+                            "Luna, la tortuga"
+                        )
+                    )
+                ),
+                image = R.drawable.libro_de_lectura
             )
         )
     }
