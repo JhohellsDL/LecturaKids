@@ -136,7 +136,7 @@ class QuestionsFragment : Fragment() {
 
             }else{
                 stopWatch.stop()
-                val endingItem = EndingItem(answersCorrect = answersCorrect, time = time, score = score)
+                val endingItem = EndingItem(title = reading.title, answersCorrect = answersCorrect, time = time, score = score)
                 val action = QuestionsFragmentDirections.actionQuestionsFragmentToEndReadingFragment(endingItem)
                 it.findNavController().navigate(action)
             }

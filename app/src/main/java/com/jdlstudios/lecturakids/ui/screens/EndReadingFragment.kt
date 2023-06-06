@@ -23,6 +23,8 @@ class EndReadingFragment : Fragment() {
 
         val safeArgs: EndReadingFragmentArgs by navArgs()
 
+        binding.textScore.text = safeArgs.endingItem.score.toString()
+        binding.txtTitleReading.text = safeArgs.endingItem.title
         binding.textTime.text = safeArgs.endingItem.time.toString()
         binding.textAnswerCorrects.text = safeArgs.endingItem.answersCorrect.toString()
 
