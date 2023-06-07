@@ -3,6 +3,7 @@ package com.jdlstudios.lecturakids.domain.utils
 import android.os.Handler
 import android.os.SystemClock
 
+@Suppress("DEPRECATION")
 class StopWatch(private val onTick: (Long) -> Unit) {
     private var startTime: Long = 0
     private var running: Boolean = false
@@ -30,12 +31,6 @@ class StopWatch(private val onTick: (Long) -> Unit) {
         }
     }
 
-    fun reset() {
-        startTime = 0
-        running = false
-        handler.removeCallbacks(tickRunnable) // Detener el seguimiento del tiempo
-    }
-
     private fun getElapsedTime(): Long {
         return if (running) {
             SystemClock.elapsedRealtime() - startTime
@@ -44,66 +39,3 @@ class StopWatch(private val onTick: (Long) -> Unit) {
         }
     }
 }
-
-
-    /*private var startTime: Long = 0
-    private var isRunning = false
-
-    fun start() {
-        if (!isRunning) {
-            startTime = System.nanoTime()
-            isRunning = true
-        }
-    }
-
-    fun stop() {
-        if (isRunning) {
-            isRunning = false
-        }
-    }
-
-    fun getElapsedTime(): Long {
-        if (isRunning) {
-            return System.nanoTime() - startTime
-        } else {
-            return 0
-        }
-    }
-
-    fun printElapsedTime() {
-        if (isRunning) {
-            Log.i("lectura","Elapsed time: ${getElapsedTime() / 1_000_000} seconds")
-        } else {
-            println("Elapsed time: 0 seconds")
-        }
-    }*/
-
-    /*private var startTime: Long = 0
-    private var running: Boolean = false
-
-    fun start() {
-        if (!running) {
-            startTime = SystemClock.elapsedRealtime()
-            running = true
-        }
-    }
-
-    fun stop() {
-        if (running) {
-            running = false
-        }
-    }
-
-    fun reset() {
-        startTime = 0
-        running = false
-    }
-
-    fun getElapsedTime(): Long {
-        return if (running) {
-            SystemClock.elapsedRealtime() - startTime
-        } else {
-            0
-        }
-    }*/
-

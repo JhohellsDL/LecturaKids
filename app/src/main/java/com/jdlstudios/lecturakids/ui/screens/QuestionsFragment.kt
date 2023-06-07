@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.jdlstudios.lecturakids.R
@@ -41,10 +40,8 @@ class QuestionsFragment : Fragment() {
         val level = safeArgs.level
         val id = safeArgs.id
 
-        var answersCorrect: Int = 0
-        val score: Int = 0
-        var time: Int = 0
-
+        var answersCorrect = 0
+        var time = 0
 
         // Uso del cronómetro
         val stopWatch = StopWatch { tiempoTranscurrido ->
@@ -53,69 +50,49 @@ class QuestionsFragment : Fragment() {
             Log.i("lectura", "Segundos transcurridos: $secondsElapsed")
         }
         stopWatch.start()
-        /*val stopwatch = Cronometro()
-
-        stopwatch.start()
-
-        Log.i("lectura","Tiempo inicio: ${stopwatch.getElapsedTime()} ms")*/
-
-// Realiza algunas operaciones o espera un tiempo...
-
 
         val reading: ReadingItem = getReadingUseCase.invoke(level, (id - 1))
         val listQuestions: List<QuestionItem> = reading.questions
         var position = 0
-        Log.i("lectura", "questions: ${listQuestions.size}")
 
         var currentQuestion: String = listQuestions[0].question
         var listAnswersCorrect = listQuestions[0].options[0]
         var answerUser = ""
         var listOptionsQuestion: List<String> = listQuestions[0].options.shuffled()
+
         binding.firstAnswerRadioButton.text = listOptionsQuestion[0]
         binding.secondAnswerRadioButton.text = listOptionsQuestion[1]
         binding.thirdAnswerRadioButton.text = listOptionsQuestion[2]
         binding.fourthAnswerRadioButton.text = listOptionsQuestion[3]
         binding.readingTitleQuestions.text = reading.title
+        binding.questionImageReading.setImageResource(reading.image)
 
         Log.i("lectura", "currentQuestion: $currentQuestion")
 
-        binding.questionText.text = currentQuestion.toString()
+        binding.questionText.text = currentQuestion
+        binding.btnEnviar.isEnabled = false
 
 
         binding.questionRadioGroup.setOnCheckedChangeListener { group, checkedId ->
-            // Verificar cuál RadioButton ha sido seleccionado
             when (checkedId) {
                 R.id.firstAnswerRadioButton -> {
-                    // Opción seleccionada: Nivel principiante
-                    // Puedes realizar las acciones correspondientes aquí
-                    Log.i("lectura", "Beginner")
                     answerUser = binding.firstAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
-                        .show()
+                    binding.btnEnviar.isEnabled = true
                 }
 
                 R.id.secondAnswerRadioButton -> {
-                    // Opción seleccionada: Nivel intermedio
-                    // Puedes realizar las acciones correspondientes aquí
                     answerUser = binding.secondAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
-                        .show()
+                    binding.btnEnviar.isEnabled = true
                 }
 
                 R.id.thirdAnswerRadioButton -> {
-                    // Opción seleccionada: Nivel avanzado
-                    // Puedes realizar las acciones correspondientes aquí
                     answerUser = binding.thirdAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
-                        .show()
+                    binding.btnEnviar.isEnabled = true
                 }
 
                 R.id.fourthAnswerRadioButton -> {
-                    // Opción seleccionada: Nivel avanzado
-                    // Puedes realizar las acciones correspondientes aquí
                     answerUser = binding.fourthAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
-                        .show()
+                    binding.btnEnviar.isEnabled = true
                 }
             }
         }
@@ -124,23 +101,24 @@ class QuestionsFragment : Fragment() {
             if (listAnswersCorrect == answerUser) {
                 Log.i("lectura", "answer: $listAnswersCorrect -> $answerUser")
                 answersCorrect++
-                Toast.makeText(requireContext(), "Correct", Toast.LENGTH_SHORT).show()
             } else {
                 Log.i("lectura", "answer: $listAnswersCorrect -> $answerUser")
-                Toast.makeText(requireContext(), "Incorrect", Toast.LENGTH_SHORT).show()
             }
+
+            binding.questionRadioGroup.clearCheck()
             position += 1
 
             if (position < listQuestions.size) {
 
                 currentQuestion = listQuestions[position].question
-                binding.questionText.text = currentQuestion.toString()
+                binding.questionText.text = currentQuestion
                 listAnswersCorrect = listQuestions[position].options[0]
                 listOptionsQuestion = listQuestions[position].options.shuffled()
                 binding.firstAnswerRadioButton.text = listOptionsQuestion[0]
                 binding.secondAnswerRadioButton.text = listOptionsQuestion[1]
                 binding.thirdAnswerRadioButton.text = listOptionsQuestion[2]
                 binding.fourthAnswerRadioButton.text = listOptionsQuestion[3]
+                binding.btnEnviar.isEnabled = false
 
             } else {
                 stopWatch.stop()
@@ -160,14 +138,6 @@ class QuestionsFragment : Fragment() {
             }
 
         }
-
-
-        // casi esta bien al elegir la tectura,pero al poner en random da error coregir eso
-
-        /*binding.firstAnswerRadioButton.text = listOptionsQuestion[0]
-        binding.secondAnswerRadioButton.text = listOptionsQuestion[1]
-        binding.thirdAnswerRadioButton.text = listOptionsQuestion[2]
-        binding.fourthAnswerRadioButton.text = listOptionsQuestion[3]*/
 
         return binding.root
     }

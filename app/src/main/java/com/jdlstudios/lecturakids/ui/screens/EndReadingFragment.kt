@@ -38,9 +38,27 @@ class EndReadingFragment : Fragment() {
         val percentage: Int = safeArgs.endingItem.percentage
         val answersCorrect: Int = safeArgs.endingItem.answersCorrect
 
-        binding.textScore.text = score.toString()
+
+        when (score) {
+            in 81..99 -> {
+                binding.txtMessageCongratulations.setText(R.string.message_congratulations)
+                binding.txtMessage.setText(R.string.message_completion_correct)
+            }
+
+            in 61..80 -> {
+                binding.txtMessageCongratulations.setText(R.string.message_felicitations)
+                binding.txtMessage.setText(R.string.message_completion)
+            }
+
+            else -> {
+                binding.txtMessageCongratulations.setText(R.string.message_attention)
+                binding.txtMessage.setText(R.string.message_retry)
+            }
+        }
+
+        binding.textScore.text = String.format("%d pts", score)
         binding.txtTitleReading.text = title
-        binding.textTime.text = time.toString()
+        binding.textTime.text = Utils.convertSecondsTime(time)
         binding.textAnswerCorrects.text = answersCorrect.toString()
 
         //--------------------------------- Para el VIEWMODEL --------------------------------------------------------------

@@ -54,7 +54,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/montserrat"
                     android:textColor="@color/textTitle2"
-                    android:textSize="24sp"
+                    android:textSize="28sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@id/image_reading"
                     app:layout_constraintBottom_toBottomOf="parent"

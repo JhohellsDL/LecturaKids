@@ -4,11 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.jdlstudios.lecturakids.data.dao.ReadingDao
 import com.jdlstudios.lecturakids.data.entities.ReadingEntity
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @Database(entities = [ReadingEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
@@ -38,7 +36,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 
-    private class LecturaDatabaseCallback(
+    /*private class LecturaDatabaseCallback(
         private val scope: CoroutineScope
     ) : Callback() {
 
@@ -68,5 +66,5 @@ abstract class AppDatabase : RoomDatabase() {
 
             readingDao.insert(reading)
         }
-    }
+    }*/
 }

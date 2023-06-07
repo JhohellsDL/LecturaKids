@@ -35,4 +35,13 @@ A Max le gusta explorar y jugar por toda la casa. Un día, encontró una bola de
     <string name="informe_de_lecturas">Informe de Lecturas</string>
 
 
+    <string name="message_congratulations">¡Excelente!</string>
+    <string name="message_completion_correct">Has completado correctamente la lectura:</string>
+    <string name="message_completion">Has completado la lectura:</string>
+    <string name="message_felicitations">¡Felicitaciones!</string>
+    <string name="message_attention">¿Distraído?</string>
+    <string name="message_retry">Sigue intentando y ahora con más atención la lectura:</string>
+
+
+
 </resources>

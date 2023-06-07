@@ -57,14 +57,20 @@ object Utils {
         val score: Int
         var timeAux = 60
 
+        val answersCorrectAux: Int = if (answersCorrect != 0) {
+            answersCorrect
+        } else {
+            -4
+        }
+
         score = if (time < 60) {
-            (answersCorrect * 10) + (timeAux)
+            (answersCorrectAux * 10) + (timeAux)
         } else {
             timeAux -= (time - 60)
             if (timeAux < 0) {
-                answersCorrect * 10
+                answersCorrectAux * 10
             } else {
-                answersCorrect * 10 + timeAux
+                answersCorrectAux * 10 + timeAux
             }
 
         }

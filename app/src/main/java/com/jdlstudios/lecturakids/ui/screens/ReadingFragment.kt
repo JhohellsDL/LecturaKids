@@ -1,18 +1,16 @@
 package com.jdlstudios.lecturakids.ui.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingAdvancedProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingIntermediateProvider
 import com.jdlstudios.lecturakids.databinding.FragmentReadingBinding
-import com.jdlstudios.lecturakids.databinding.FragmentSelectedLevelBinding
 import com.jdlstudios.lecturakids.domain.usescases.GetReadingUseCase
 
 class ReadingFragment : Fragment() {
@@ -39,6 +37,7 @@ class ReadingFragment : Fragment() {
 
         binding.textContent.text = reading.reading
         binding.textTitle.text = reading.title
+        binding.imageReading.setImageResource(reading.image)
 
         binding.btnSiguiente.setOnClickListener {
             val action = ReadingFragmentDirections.actionReadingFragmentToQuestionsFragment(level, id)

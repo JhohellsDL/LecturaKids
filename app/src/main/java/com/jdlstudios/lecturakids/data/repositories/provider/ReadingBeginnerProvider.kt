@@ -229,7 +229,7 @@ class ReadingBeginnerProvider {
                 image = R.drawable.libro_de_lectura
             ),
             ReadingItem(
-                id = 5,
+                id = 6,
                 title = "La tortuga sabia",
                 reading = "Había una vez una tortuga llamada Teresa. Teresa era conocida en el bosque por su gran sabiduría. Los demás animales acudían a ella en busca de consejo. Un día, un conejito le preguntó a Teresa cómo podía ser más rápido. La tortuga respondió: 'La velocidad no es lo más importante, la constancia lo es'. Teresa le enseñó al conejito a disfrutar cada paso y a no compararse con los demás. Desde ese día, el conejito dejó de preocuparse por ser el más rápido y comenzó a disfrutar de cada salto. Teresa continuó compartiendo su sabiduría con los demás animales y todos aprendieron a valorar la importancia de la paciencia y la constancia.",
                 questions = listOf(
@@ -273,7 +273,7 @@ class ReadingBeginnerProvider {
                 image = R.drawable.libro_de_lectura
             ),
             ReadingItem(
-                id = 6,
+                id = 7,
                 title = "El viaje de la abejita",
                 reading = "Había una vez una abejita llamada Maya. Maya vivía en una colmena con muchas otras abejas. Un día, Maya decidió emprender un emocionante viaje fuera de la colmena para explorar el mundo. Voló entre los campos de flores, recogiendo néctar y polen. En su camino, conoció a una mariposa llamada Luna, un pájaro cantor llamado Pedro y una mariquita llamada Sofía. Juntos, vivieron aventuras y descubrieron lugares increíbles. Después de un tiempo, Maya decidió regresar a su colmena y compartir todas las historias y experiencias con sus amigas abejas. A partir de ese día, la colmena se llenó de entusiasmo y las abejas se animaron a explorar el mundo también.",
                 questions = listOf(
@@ -317,7 +317,7 @@ class ReadingBeginnerProvider {
                 image = R.drawable.libro_de_lectura
             ),
             ReadingItem(
-                id = 7,
+                id = 8,
                 title = "El elefantito curioso",
                 reading = "Había una vez un elefantito llamado Pablito. Pablito era muy curioso y siempre hacía preguntas sobre todo lo que veía. Un día, mientras caminaba por la selva, vio un árbol con frutas de colores. Quería saber si eran deliciosas, así que decidió probar una. ¡Era deliciosa! Pablito estaba tan emocionado que comenzó a comer más y más frutas. Pronto, se dio cuenta de que había comido demasiado y su barriga estaba llena. No podía moverse. Pero no se preocupen, llegó su amiga la jirafa Gina, quien le dio un masaje en la barriga y lo ayudó a sentirse mejor. Desde ese día, Pablito siguió siendo curioso, pero aprendió a no excederse y a pedir ayuda cuando lo necesitaba.",
                 questions = listOf(
