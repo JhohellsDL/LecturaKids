@@ -30,8 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         "app_database"
-                    ).addCallback(LecturaDatabaseCallback(scope))
-                        .build()
+                    ).build()
                     INSTANCE = instance
                 }
                 return instance
