@@ -78,4 +78,12 @@ object Utils {
         return score
     }
 
+    fun getPercentageAverage(list: List<ReadingEntity>): Int {
+        var sum = 0
+        list.map {
+            sum += it.percentage
+        }
+        return sum / list.size
+    }
+
 }

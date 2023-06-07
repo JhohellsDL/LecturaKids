@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.screens.InformationFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundPrimary"
@@ -15,9 +15,11 @@
         tools:ignore="UselessParent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_description_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark">
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_description_reading"
@@ -78,18 +80,6 @@
                         tools:text="Promedio de respuestas correctas: 80%" />
 
                     <TextView
-                        android:id="@+id/text_readings_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="@font/montserrat"
-                        android:textColor="@color/textTitle2"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/text_percentage_corrects"
-                        tools:text="Tiempo promedio por lectura: 12 minutos" />
-
-                    <TextView
                         android:id="@+id/text_last_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -98,7 +88,7 @@
                         android:textColor="@color/textTitle2"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/text_readings_time"
+                        app:layout_constraintTop_toBottomOf="@id/text_percentage_corrects"
                         tools:text="Lectura más reciente: 'Título de la lectura'" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,8 +101,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/backgroundSecondary"
+            app:layout_constraintTop_toBottomOf="@id/constraint_description_information"
             tools:itemCount="3"
             tools:listitem="@layout/item_reading_information" />
 
-    </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:contentDescription="@string/imagen_descriptiva"
+            android:src="@drawable/flecha_hacia_atras"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </FrameLayout>

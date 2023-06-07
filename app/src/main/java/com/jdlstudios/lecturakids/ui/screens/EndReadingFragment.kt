@@ -40,7 +40,7 @@ class EndReadingFragment : Fragment() {
 
 
         when (score) {
-            in 81..99 -> {
+            in 81..100 -> {
                 binding.txtMessageCongratulations.setText(R.string.message_congratulations)
                 binding.txtMessage.setText(R.string.message_completion_correct)
             }
