@@ -62,6 +62,8 @@ abstract class AppDatabase : RoomDatabase() {
                 date = "asd",
                 time = "00:56",
                 answerCorrects = 4,
+                level = 2,
+                percentage = 75,
                 score = 50
             )
 

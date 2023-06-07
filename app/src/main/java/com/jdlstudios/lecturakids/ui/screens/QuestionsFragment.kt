@@ -19,6 +19,7 @@ import com.jdlstudios.lecturakids.domain.models.QuestionItem
 import com.jdlstudios.lecturakids.domain.models.ReadingItem
 import com.jdlstudios.lecturakids.domain.usescases.GetReadingUseCase
 import com.jdlstudios.lecturakids.domain.utils.StopWatch
+import com.jdlstudios.lecturakids.domain.utils.Utils
 
 class QuestionsFragment : Fragment() {
 
@@ -49,7 +50,7 @@ class QuestionsFragment : Fragment() {
         val stopWatch = StopWatch { tiempoTranscurrido ->
             val secondsElapsed = tiempoTranscurrido / 1000
             time = secondsElapsed.toInt()
-            Log.i("lectura","Segundos transcurridos: $secondsElapsed")
+            Log.i("lectura", "Segundos transcurridos: $secondsElapsed")
         }
         stopWatch.start()
         /*val stopwatch = Cronometro()
@@ -61,7 +62,7 @@ class QuestionsFragment : Fragment() {
 // Realiza algunas operaciones o espera un tiempo...
 
 
-        val reading: ReadingItem = getReadingUseCase.invoke(level, (id-1))
+        val reading: ReadingItem = getReadingUseCase.invoke(level, (id - 1))
         val listQuestions: List<QuestionItem> = reading.questions
         var position = 0
         Log.i("lectura", "questions: ${listQuestions.size}")
@@ -89,41 +90,48 @@ class QuestionsFragment : Fragment() {
                     // Puedes realizar las acciones correspondientes aquí
                     Log.i("lectura", "Beginner")
                     answerUser = binding.firstAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
+                        .show()
                 }
+
                 R.id.secondAnswerRadioButton -> {
                     // Opción seleccionada: Nivel intermedio
                     // Puedes realizar las acciones correspondientes aquí
                     answerUser = binding.secondAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
+                        .show()
                 }
+
                 R.id.thirdAnswerRadioButton -> {
                     // Opción seleccionada: Nivel avanzado
                     // Puedes realizar las acciones correspondientes aquí
                     answerUser = binding.thirdAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
+                        .show()
                 }
+
                 R.id.fourthAnswerRadioButton -> {
                     // Opción seleccionada: Nivel avanzado
                     // Puedes realizar las acciones correspondientes aquí
                     answerUser = binding.fourthAnswerRadioButton.text as String
-                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Title: $answerUser", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
 
         binding.btnEnviar.setOnClickListener {
-            if (listAnswersCorrect == answerUser){
+            if (listAnswersCorrect == answerUser) {
                 Log.i("lectura", "answer: $listAnswersCorrect -> $answerUser")
-                answersCorrect ++
+                answersCorrect++
                 Toast.makeText(requireContext(), "Correct", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 Log.i("lectura", "answer: $listAnswersCorrect -> $answerUser")
                 Toast.makeText(requireContext(), "Incorrect", Toast.LENGTH_SHORT).show()
             }
             position += 1
 
-            if (position < listQuestions.size){
+            if (position < listQuestions.size) {
 
                 currentQuestion = listQuestions[position].question
                 binding.questionText.text = currentQuestion.toString()
@@ -134,10 +142,20 @@ class QuestionsFragment : Fragment() {
                 binding.thirdAnswerRadioButton.text = listOptionsQuestion[2]
                 binding.fourthAnswerRadioButton.text = listOptionsQuestion[3]
 
-            }else{
+            } else {
                 stopWatch.stop()
-                val endingItem = EndingItem(title = reading.title, answersCorrect = answersCorrect, time = time, score = score)
-                val action = QuestionsFragmentDirections.actionQuestionsFragmentToEndReadingFragment(endingItem)
+                val endingItem = EndingItem(
+                    title = reading.title,
+                    level = level,
+                    percentage = Utils.getPercentage(answersCorrect),
+                    answersCorrect = answersCorrect,
+                    time = time,
+                    score = Utils.getScore(time, answersCorrect)
+                )
+                val action =
+                    QuestionsFragmentDirections.actionQuestionsFragmentToEndReadingFragment(
+                        endingItem
+                    )
                 it.findNavController().navigate(action)
             }
 

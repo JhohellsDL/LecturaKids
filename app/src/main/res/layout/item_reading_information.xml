@@ -26,8 +26,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_libro"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:src="@drawable/libro_abierto"/>
@@ -35,25 +35,62 @@
             <TextView
                 android:id="@+id/text_title"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center_vertical"
                 android:textColor="@color/textTitle"
                 android:textSize="16sp"
                 android:layout_marginStart="12dp"
-                app:layout_constraintBottom_toBottomOf="@id/image_libro"
                 app:layout_constraintStart_toEndOf="@id/image_libro"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/image_libro"
                 tools:text="Titulo de la lectura" />
+
+            <TextView
+                android:id="@+id/text_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:textColor="@color/textBody"
+                android:textSize="16sp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_title"
+                app:layout_constraintBottom_toBottomOf="@id/text_title"
+                tools:text="80%" />
+
+            <TextView
+                android:id="@+id/text_level"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:textColor="@color/textBody"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/text_title"
+                app:layout_constraintTop_toBottomOf="@id/text_title"
+                tools:text="Intermediate" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="80"
+                android:progressBackgroundTint="@color/colorPrimaryDark"
+                android:progressTint="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_title"
+                app:layout_constraintTop_toBottomOf="@id/image_libro" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_date"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/image_libro"
+                app:layout_constraintTop_toBottomOf="@id/progressBar"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/reloj"/>
+                android:src="@drawable/calendario"/>
 
             <TextView
                 android:id="@+id/text_date"
@@ -67,12 +104,12 @@
                 app:layout_constraintBottom_toBottomOf="@id/image_date"
                 app:layout_constraintStart_toEndOf="@id/image_date"
                 app:layout_constraintTop_toTopOf="@id/image_date"
-                tools:text="05/06/2023" />
+                tools:text="05/06/2023 - 14:24" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_time_reading"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@id/image_date"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +126,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/image_time_reading"
                 app:layout_constraintStart_toEndOf="@id/image_time_reading"
                 app:layout_constraintTop_toTopOf="@id/image_time_reading"
-                tools:text="09:15 minutos" />
+                tools:text="00:09:15" />
 
             <View
                 android:id="@+id/divider"
@@ -99,17 +136,17 @@
                 app:layout_constraintBottom_toBottomOf="@id/image_time_reading"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image_libro"
+                app:layout_constraintTop_toBottomOf="@id/progressBar"
                 android:background="?android:attr/listDivider" />
 
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_answers_corrects"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/image_libro"
+                app:layout_constraintTop_toBottomOf="@id/progressBar"
                 app:layout_constraintStart_toEndOf="@id/divider"
                 android:src="@drawable/comprobar"/>
 
@@ -129,13 +166,13 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_score"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="12dp"
                 app:layout_constraintTop_toBottomOf="@id/image_answers_corrects"
                 app:layout_constraintStart_toEndOf="@id/divider"
-                android:src="@drawable/reloj"/>
+                android:src="@drawable/puntuacion_mas_alta"/>
             <TextView
                 android:id="@+id/text_score"
                 android:layout_width="wrap_content"

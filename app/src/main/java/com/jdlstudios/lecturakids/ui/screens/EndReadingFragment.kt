@@ -34,6 +34,8 @@ class EndReadingFragment : Fragment() {
         val score: Int = safeArgs.endingItem.score
         val title: String = safeArgs.endingItem.title
         val time: Int = safeArgs.endingItem.time
+        val level: Int = safeArgs.endingItem.level
+        val percentage: Int = safeArgs.endingItem.percentage
         val answersCorrect: Int = safeArgs.endingItem.answersCorrect
 
         binding.textScore.text = score.toString()
@@ -52,8 +54,10 @@ class EndReadingFragment : Fragment() {
         val readingEntity: ReadingEntity = Utils.toReadingEntity(
             title = title,
             date = Utils.getDateCurrentTime(),
-            answersCorrect = answersCorrect,
             time = Utils.convertSecondsTime(time),
+            level = level,
+            percentage = percentage,
+            answersCorrect = answersCorrect,
             score = score
         )
 

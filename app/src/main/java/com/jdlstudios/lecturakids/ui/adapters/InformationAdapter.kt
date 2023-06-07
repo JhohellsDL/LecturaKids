@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jdlstudios.lecturakids.data.entities.ReadingEntity
 import com.jdlstudios.lecturakids.databinding.ItemReadingInformationBinding
+import com.jdlstudios.lecturakids.domain.utils.Utils
 
 class InformationAdapter :
     ListAdapter<ReadingEntity, InformationAdapter.ReadingViewHolder>(ReadingComparator()) {
@@ -27,9 +28,13 @@ class InformationAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ReadingEntity) {
             binding.textTitle.text = item.title
+            binding.textPercentage.text = String.format("%d %%", item.percentage)
+            binding.progressBar.progress = item.percentage
+            binding.textLevel.text = Utils.getDifficult(item.level)
             binding.textDate.text = item.date
-            binding.textTime.text = item.time.toString()
-            binding.textScore.text = item.score.toString()
+            binding.textTime.text = item.time
+            binding.textAnswerCorrects.text = String.format("%d correctas", item.answerCorrects)
+            binding.textScore.text = String.format("%d pts", item.score)
         }
 
         companion object {

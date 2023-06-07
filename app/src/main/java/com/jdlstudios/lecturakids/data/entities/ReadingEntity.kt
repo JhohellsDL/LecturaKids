@@ -10,6 +10,8 @@ data class ReadingEntity(
     val title: String,
     val date: String,
     val time: String,
+    val level: Int,
+    val percentage: Int,
     val answerCorrects: Int,
     val score: Int
 )
