@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/backgroundPrimary"
         android:translationZ="4dp"
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

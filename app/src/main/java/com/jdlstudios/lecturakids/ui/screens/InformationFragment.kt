@@ -44,11 +44,11 @@ class InformationFragment : Fragment() {
             }
         }
 
-        binding.btnVolver.setOnClickListener {
+        /*binding.btnVolver.setOnClickListener {
             //viewModel.getList()
             Log.i("lectura","- ${viewModel.getList()}")
             //it.findNavController().navigate(R.id.action_informationFragment_to_inicioFragment)
-        }
+        }*/
 
         return binding.root
     }

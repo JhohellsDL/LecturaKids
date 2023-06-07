@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,61 +9,104 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/backgroundPrimary"
         android:orientation="vertical"
-        android:padding="16dp"
         tools:context=".InformeLecturasFragment">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Informe de Lecturas"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:background="@color/colorPrimaryDark">
 
-        <!-- Aquí puedes agregar elementos de resumen de las lecturas, por ejemplo: -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_description_reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:translationZ="4dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total de lecturas realizadas: 5"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/colorPrimary">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Promedio de respuestas correctas: 80%"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+                    <TextView
+                        android:id="@+id/label1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="center"
+                        android:text="Informe de Lecturas"
+                        android:textColor="@color/textTitle2"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiempo promedio por lectura: 12 minutos"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+                    <TextView
+                        android:id="@+id/text_readings_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Total de lecturas realizadas: 5"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label1"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lectura más reciente: 'Título de la lectura'"
-            android:textSize="18sp"
-            android:layout_marginBottom="32dp" />
+                    <TextView
+                        android:id="@+id/text_percentage_corrects"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Promedio de respuestas correctas: 80%"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_readings_number" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Volver"
-            android:textColor="@color/white"
-            android:id="@+id/btnVolver" />
+                    <TextView
+                        android:id="@+id/text_readings_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Tiempo promedio por lectura: 12 minutos"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_percentage_corrects" />
+
+                    <TextView
+                        android:id="@+id/text_last_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32dp"
+                        android:text="Lectura más reciente: 'Título de la lectura'"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_readings_time" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/backgroundSecondary"
             tools:itemCount="3"
-            tools:listitem="@layout/item_reading_information"/>
+            tools:listitem="@layout/item_reading_information" />
 
     </LinearLayout>
 </FrameLayout>
