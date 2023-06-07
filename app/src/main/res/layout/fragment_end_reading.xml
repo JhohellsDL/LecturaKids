@@ -213,6 +213,7 @@
                     android:background="@color/backgroundSecondary" />
 
                 <LinearLayout
+                    android:id="@+id/layout_shared"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
