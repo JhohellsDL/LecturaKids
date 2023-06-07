@@ -2,6 +2,7 @@ package com.jdlstudios.lecturakids.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
@@ -25,11 +26,13 @@ class SelectedReadingAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         private val textTitle: TextView = binding.textTitle
+        private val imageView: ImageView = binding.imageReadingItem
 
         fun bind(
             item: ReadingItem,
             onClickListener: (ReadingItem) -> Unit
         ) {
+            imageView.setImageResource(item.image)
             textTitle.text = item.title
             itemView.setOnClickListener { onClickListener(item) }
         }
