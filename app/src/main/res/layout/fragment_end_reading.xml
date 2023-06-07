@@ -18,11 +18,12 @@
             android:layout_height="150dp"
             android:layout_marginTop="80dp"
             android:src="@drawable/leyendo"
-            app:civ_border_color="@color/accent1"
+            app:civ_border_color="@color/backgroundPrimary"
             app:civ_border_width="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/txt_message_congratulations"
@@ -31,12 +32,12 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="Felicitaciones"
-            android:textSize="24sp"
             android:textColor="@color/backgroundPrimary"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/reading_image" />
+            app:layout_constraintTop_toBottomOf="@id/reading_image"
+            tools:text="Felicitaciones" />
 
         <TextView
             android:id="@+id/txt_message"
@@ -45,12 +46,12 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="Has completado la lectura:"
-            android:textSize="16sp"
             android:textColor="@color/textTitle2"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_message_congratulations" />
+            app:layout_constraintTop_toBottomOf="@id/txt_message_congratulations"
+            tools:text="Has completado la lectura:" />
 
         <TextView
             android:id="@+id/txt_title_reading"
@@ -59,13 +60,14 @@
             android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="Mi perrito feliz"
+            android:textColor="@color/accent1"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/accent1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_message" />
+            app:layout_constraintTop_toBottomOf="@id/txt_message"
+            tools:ignore="TextContrastCheck"
+            tools:text="Mi perrito feliz" />
 
         <View
             android:id="@+id/divider3"
@@ -81,8 +83,8 @@
             android:id="@+id/card_view_score"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginTop="24dp"
             app:cardCornerRadius="12dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_title_reading">
@@ -98,8 +100,8 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/montserrat"
                     android:gravity="center"
-                    android:textStyle="bold"
                     android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
                     tools:text="100 pts" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -119,10 +121,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
 
                 <LinearLayout
                     android:layout_width="80dp"
@@ -135,15 +136,17 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/comprobar" />
+                        android:src="@drawable/comprobar"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/montserrat"
                         android:gravity="center"
-                        android:text="Respuestas Correctas"
+                        android:text="@string/respuestas_correctas"
                         android:textColor="@color/textTitle2"
                         android:textSize="12sp" />
 
@@ -153,10 +156,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/montserrat"
-                        tools:text="5"
                         android:textColor="@color/textTitle2"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="5" />
                 </LinearLayout>
 
                 <View
@@ -170,23 +173,26 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="8dp"
+                    tools:ignore="TextSizeCheck">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/cronografo" />
+                        android:src="@drawable/cronografo"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textSize="12sp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/montserrat"
+                        android:gravity="center"
+                        android:text="@string/tiempo_de_lectura"
                         android:textColor="@color/textTitle2"
-                        android:text="Tiempo de Lectura" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/text_time"
@@ -197,7 +203,7 @@
                         android:textColor="@color/textTitle2"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:text="00:00:00" />
+                        tools:text="00:00:00" />
                 </LinearLayout>
 
                 <View
@@ -211,23 +217,27 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="8dp"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/compartir" />
+                        android:src="@drawable/compartir"
+                        tools:ignore="ContentDescription,ImageContrastCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textSize="12sp"
+                        android:layout_marginTop="4dp"
                         android:fontFamily="@font/montserrat"
+                        android:gravity="center"
+                        android:text="@string/comparte_tu_logro"
                         android:textColor="@color/textTitle2"
-                        android:text="Comparte tu logro!" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -238,15 +248,15 @@
 
         <Button
             android:id="@+id/btnTerminar"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:text="Terminar"
             android:layout_marginHorizontal="32dp"
             android:backgroundTint="@color/colorAccent"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/terminar"
+            android:textColor="@color/textTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,25 +45,33 @@
                 android:background="@drawable/gradient_inicio"
                 android:padding="16dp">
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/radioGroupLevels"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/level"
+                    tools:ignore="ImageContrastCheck" />
+
                 <RadioGroup
                     android:id="@+id/radioGroupLevels"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:layout_marginEnd="32dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelBeginner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/accent1"
-                        android:checked="true"
-                        android:shadowColor="@color/accent1"
                         android:text="@string/beginner"
-                        android:textColor="@color/textTitle2" />
+                        android:textColor="@color/textTitle2"
+                        tools:ignore="TextContrastCheck" />
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelIntermediate"
@@ -127,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/accent1"
-            android:textColor="@color/textTitle2"
+            android:textColor="@color/textTitle"
             android:text="@string/reading_random"
             android:lines="2"
             app:layout_constraintBottom_toTopOf="@id/btnStartSelected"
@@ -142,7 +150,7 @@
             android:backgroundTint="@color/colorAccent"
             android:text="@string/reading_selected"
             android:lines="2"
-            android:textColor="@color/textTitle2"
+            android:textColor="@color/textTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

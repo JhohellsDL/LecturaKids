@@ -23,9 +23,16 @@ A Max le gusta explorar y jugar por toda la casa. Un día, encontró una bola de
 
 \n\nEspero que te haya gustado conocer a mi gato travieso, Max. ¡Hasta la próxima!</string>
     <string name="reading_selected">Seleccionar Lectura</string>
-    <string name="app_description">Una aplicación educativa diseñada para mejorar las habilidades de lectura de los niños mediante actividades interactivas y entretenidas.</string>
+    <string name="app_description">Una aplicación educativa diseñada para mejorar las habilidades de lectura de los niños.</string>
     <string name="name_app">LecturaKids</string>
     <string name="imagen_descriptiva">imagen descriptiva</string>
+    <string name="comprueba_tu_comprensi_n">Comprueba tu comprensión</string>
+    <string name="enviar">Enviar</string>
+    <string name="respuestas_correctas">Respuestas Correctas</string>
+    <string name="tiempo_de_lectura">Tiempo de Lectura</string>
+    <string name="comparte_tu_logro">Comparte tu logro!</string>
+    <string name="terminar">Terminar</string>
+    <string name="informe_de_lecturas">Informe de Lecturas</string>
 
 
 </resources>
