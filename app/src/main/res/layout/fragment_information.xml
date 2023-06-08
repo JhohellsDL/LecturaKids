@@ -96,15 +96,22 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_information"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/backgroundSecondary"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraint_description_information"
-            tools:itemCount="2"
-            tools:listitem="@layout/item_reading_information" />
+            app:layout_constraintTop_toBottomOf="@id/constraint_description_information">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_information"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/backgroundSecondary"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_reading_information" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_button_add"

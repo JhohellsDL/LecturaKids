@@ -1,6 +1,8 @@
 package com.jdlstudios.lecturakids.ui.screens
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,10 +53,12 @@ class InformationFragment : Fragment() {
                 String.format("Total de lecturas realizadas: %d", size)
             binding.textPercentageCorrects.text =
                 String.format("Promedio de respuestas correctas: %d %%", percentageAverage)
-            if (lista.isEmpty()){
-                binding.textLastTitle.text = String.format("Lectura más reciente: %s",
-                    "-")
-            }else{
+            if (lista.isEmpty()) {
+                binding.textLastTitle.text = String.format(
+                    "Lectura más reciente: %s",
+                    "-"
+                )
+            } else {
                 binding.textLastTitle.text = String.format("Lectura más reciente: %s",
                     lista[0].title.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() })
             }
@@ -64,6 +68,18 @@ class InformationFragment : Fragment() {
         binding.floatingButtonAdd.setOnClickListener {
             val action = R.id.action_informationFragment_to_inicioFragment
             it.findNavController().navigate(action)
+        }
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.swipeRefreshLayout.isRefreshing = false
+                viewModel.allReadings.observe(viewLifecycleOwner) {
+                    it.let {
+                        adapter.submitList(it)
+                    }
+                }
+            }, 1000)
         }
 
         return binding.root
