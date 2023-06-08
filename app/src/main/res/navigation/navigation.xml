@@ -24,14 +24,10 @@
         tools:layout="@layout/fragment_selected_level" >
         <action
             android:id="@+id/action_selectedLevelFragment_to_readingFragment"
-            app:destination="@id/readingFragment"
-            app:popUpTo="@id/selectedLevelFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/readingFragment"/>
         <action
             android:id="@+id/action_selectedLevelFragment_to_selectedReadingFragment"
-            app:destination="@id/selectedReadingFragment"
-            app:popUpTo="@id/selectedLevelFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/selectedReadingFragment"/>
     </fragment>
     <fragment
         android:id="@+id/readingFragment"
@@ -102,8 +98,6 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_selectedReadingFragment_to_readingFragment"
-            app:destination="@id/readingFragment"
-            app:popUpTo="@id/selectedReadingFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/readingFragment" />
     </fragment>
 </navigation>

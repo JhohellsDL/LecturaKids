@@ -148,7 +148,7 @@
             android:layout_margin="32dp"
             android:text="@string/enviar"
             android:lines="2"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/accent2"
             android:textColor="@color/textTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

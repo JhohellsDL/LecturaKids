@@ -13,6 +13,7 @@ data class ReadingEntity(
     val level: Int,
     val percentage: Int,
     val answerCorrects: Int,
-    val score: Int
+    val score: Int,
+    val image: Int
 )
 

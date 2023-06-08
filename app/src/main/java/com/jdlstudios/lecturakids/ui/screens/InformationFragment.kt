@@ -51,20 +51,20 @@ class InformationFragment : Fragment() {
                 String.format("Total de lecturas realizadas: %d", size)
             binding.textPercentageCorrects.text =
                 String.format("Promedio de respuestas correctas: %d %%", percentageAverage)
-            binding.textLastTitle.text = String.format("Lectura más reciente: %s",
-                lista[0].title.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() })
+            if (lista.isEmpty()){
+                binding.textLastTitle.text = String.format("Lectura más reciente: %s",
+                    "-")
+            }else{
+                binding.textLastTitle.text = String.format("Lectura más reciente: %s",
+                    lista[0].title.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() })
+            }
+
         }
 
         binding.floatingButtonAdd.setOnClickListener {
             val action = R.id.action_informationFragment_to_inicioFragment
             it.findNavController().navigate(action)
         }
-
-        /*binding.btnVolver.setOnClickListener {
-            //viewModel.getList()
-            Log.i("lectura","- ${viewModel.getList()}")
-            //it.findNavController().navigate(R.id.action_informationFragment_to_inicioFragment)
-        }*/
 
         return binding.root
     }

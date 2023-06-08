@@ -35,6 +35,7 @@ class InformationAdapter :
             binding.textTime.text = item.time
             binding.textAnswerCorrects.text = String.format("%d correctas", item.answerCorrects)
             binding.textScore.text = String.format("%d pts", item.score)
+            binding.imageReadingItemInformation.setImageResource(item.image)
         }
 
         companion object {

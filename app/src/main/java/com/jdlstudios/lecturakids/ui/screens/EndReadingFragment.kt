@@ -89,7 +89,8 @@ class EndReadingFragment : Fragment() {
             level = level,
             percentage = percentage,
             answersCorrect = answersCorrect,
-            score = score
+            score = score,
+            image = image
         )
 
         binding.btnTerminar.setOnClickListener {

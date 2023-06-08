@@ -99,10 +99,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_information"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@color/backgroundSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/constraint_description_information"
-            tools:itemCount="3"
+            tools:itemCount="2"
             tools:listitem="@layout/item_reading_information" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

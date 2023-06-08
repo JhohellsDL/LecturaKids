@@ -20,7 +20,8 @@ object Utils {
         level: Int,
         percentage: Int,
         answersCorrect: Int,
-        score: Int
+        score: Int,
+        image: Int
     ): ReadingEntity {
         return ReadingEntity(
             title = title,
@@ -29,7 +30,8 @@ object Utils {
             level = level,
             percentage = percentage,
             answerCorrects = answersCorrect,
-            score = score
+            score = score,
+            image = image
         )
     }
 
@@ -80,10 +82,14 @@ object Utils {
 
     fun getPercentageAverage(list: List<ReadingEntity>): Int {
         var sum = 0
-        list.map {
-            sum += it.percentage
+        return if (list.isEmpty()) {
+            0
+        } else {
+            list.map {
+                sum += it.percentage
+            }
+            sum / list.size
         }
-        return sum / list.size
     }
 
 }

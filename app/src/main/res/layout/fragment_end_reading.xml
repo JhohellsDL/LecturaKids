@@ -14,9 +14,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/reading_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="80dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="70dp"
             android:src="@drawable/leyendo"
             app:civ_border_color="@color/backgroundPrimary"
             app:civ_border_width="4dp"
@@ -60,7 +60,7 @@
             android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:textColor="@color/accent1"
+            android:textColor="@color/accent2"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +85,8 @@
             android:layout_height="50dp"
             android:layout_marginTop="24dp"
             app:cardCornerRadius="12dp"
+            android:translationZ="4dp"
+            app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_title_reading">
@@ -252,9 +254,10 @@
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/accent2"
             android:text="@string/terminar"
             android:textColor="@color/textTitle"
+            android:elevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

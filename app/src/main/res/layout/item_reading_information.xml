@@ -25,7 +25,7 @@
             android:padding="12dp">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image_libro"
+                android:id="@+id/image_reading_item_information"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/libro_abierto"
@@ -42,8 +42,8 @@
                 android:gravity="center_vertical"
                 android:textColor="@color/textTitle"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/image_libro"
-                app:layout_constraintTop_toTopOf="@id/image_libro"
+                app:layout_constraintStart_toEndOf="@id/image_reading_item_information"
+                app:layout_constraintTop_toTopOf="@id/image_reading_item_information"
                 tools:text="Titulo de la lectura" />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:progressTint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_title"
-                app:layout_constraintTop_toBottomOf="@id/image_libro" />
+                app:layout_constraintTop_toBottomOf="@id/image_reading_item_information" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_date"
