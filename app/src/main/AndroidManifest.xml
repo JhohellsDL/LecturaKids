@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
 
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- Sample AdMob app ID JDL: ca-app-pub-8897050281816485~8394307139 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-8897050281816485~8394307139"/>
 
         <meta-data
             android:name="preloaded_fonts"
