@@ -12,6 +12,20 @@
         android:background="@color/backgroundPrimary"
         android:padding="16dp">
 
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toTopOf="parent"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
+
         <TextView
             android:id="@+id/label_title"
             android:layout_width="wrap_content"
@@ -25,7 +39,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/adView2" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_select_level"
@@ -34,7 +48,7 @@
             android:layout_margin="16dp"
             android:translationZ="10dp"
             app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
+            app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/label_title">

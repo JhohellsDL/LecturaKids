@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingAdvancedProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingIntermediateProvider
@@ -39,6 +41,11 @@ class SelectedReadingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSelectedReadingBinding.inflate(inflater)
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView3.loadAd(adRequest)
+
 
         val safeArgs: SelectedReadingFragmentArgs by navArgs()
         val level = safeArgs.level

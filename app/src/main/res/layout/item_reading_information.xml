@@ -35,16 +35,18 @@
 
             <TextView
                 android:id="@+id/text_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center_vertical"
                 android:textColor="@color/textTitle"
                 android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@id/text_percentage"
                 app:layout_constraintStart_toEndOf="@id/image_reading_item_information"
                 app:layout_constraintTop_toTopOf="@id/image_reading_item_information"
-                tools:text="Titulo de la lectura" />
+                tools:text="Titulo de la lectur sdfgs dfgsdfgs dfgs dfgdf ga" />
 
             <TextView
                 android:id="@+id/text_percentage"
@@ -68,6 +70,7 @@
                 android:gravity="center_vertical"
                 android:textColor="@color/textBody"
                 android:textSize="12sp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintStart_toStartOf="@id/text_title"
                 app:layout_constraintTop_toBottomOf="@id/text_title"
                 tools:text="Intermediate" />
@@ -78,11 +81,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:progress="80"
+                android:layout_marginTop="16dp"
                 android:progressBackgroundTint="@color/colorPrimaryDark"
                 android:progressTint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_title"
-                app:layout_constraintTop_toBottomOf="@id/image_reading_item_information" />
+                app:layout_constraintTop_toBottomOf="@id/text_level" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_date"

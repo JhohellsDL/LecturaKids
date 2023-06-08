@@ -19,6 +19,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.jdlstudios.lecturakids.LecturaApplication
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.entities.ReadingEntity
@@ -33,12 +38,29 @@ import java.io.OutputStream
 class EndReadingFragment : Fragment() {
 
     private lateinit var binding: FragmentEndReadingBinding
+    private var mInterstitialAd: InterstitialAd? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEndReadingBinding.inflate(inflater)
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView6.loadAd(adRequest)
+
+
+        InterstitialAd.load(requireContext(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
+
 
         val safeArgs: EndReadingFragmentArgs by navArgs()
 
@@ -94,6 +116,13 @@ class EndReadingFragment : Fragment() {
         )
 
         binding.btnTerminar.setOnClickListener {
+
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.show(requireActivity())
+            } else {
+                Log.d("TAG", "The interstitial ad wasn't ready yet.")
+            }
+
             viewModel.insert(readingEntity)
             it.findNavController().navigate(R.id.action_endReadingFragment_to_informationFragment)
         }

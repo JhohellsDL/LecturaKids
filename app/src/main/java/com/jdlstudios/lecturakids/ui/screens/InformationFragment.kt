@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.jdlstudios.lecturakids.LecturaApplication
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.databinding.FragmentInformationBinding
@@ -28,6 +30,10 @@ class InformationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentInformationBinding.inflate(inflater)
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView7.loadAd(adRequest)
 
         val recyclerView = binding.recyclerviewInformation
         val adapter = InformationAdapter()

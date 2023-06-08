@@ -7,21 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingAdvancedProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingIntermediateProvider
 import com.jdlstudios.lecturakids.databinding.FragmentSelectedLevelBinding
-import com.jdlstudios.lecturakids.domain.models.ReadingItem
-import com.jdlstudios.lecturakids.domain.usescases.GetRandomReadingBeginnerUseCase
 
 class SelectedLevelFragment : Fragment() {
 
     private lateinit var binding: FragmentSelectedLevelBinding
-    private val readingBeginnerRepository: ReadingBeginnerProvider = ReadingBeginnerProvider()
-    private val getRandomReadingBeginnerUseCase: GetRandomReadingBeginnerUseCase =
-        GetRandomReadingBeginnerUseCase(readingBeginnerRepository)
 
     private var level: Int = 0
 
@@ -30,6 +27,10 @@ class SelectedLevelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSelectedLevelBinding.inflate(inflater)
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView2.loadAd(adRequest)
 
         binding.radioGroupLevels.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {

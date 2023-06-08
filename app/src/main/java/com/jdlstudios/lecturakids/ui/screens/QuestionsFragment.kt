@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.jdlstudios.lecturakids.R
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingAdvancedProvider
 import com.jdlstudios.lecturakids.data.repositories.provider.ReadingBeginnerProvider
@@ -35,6 +37,11 @@ class QuestionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentQuestionsBinding.inflate(inflater)
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView5.loadAd(adRequest)
+
 
         val safeArgs: QuestionsFragmentArgs by navArgs()
         val level = safeArgs.level
