@@ -11,5 +11,6 @@ data class EndingItem(
     val percentage: Int = 0,
     val answersCorrect: Int = 0,
     val time: Int = 0,
-    val score: Int = 0
+    val score: Int = 0,
+    val image: Int = 0
 ) : Parcelable

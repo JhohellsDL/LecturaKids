@@ -128,7 +128,8 @@ class QuestionsFragment : Fragment() {
                     percentage = Utils.getPercentage(answersCorrect),
                     answersCorrect = answersCorrect,
                     time = time,
-                    score = Utils.getScore(time, answersCorrect)
+                    score = Utils.getScore(time, answersCorrect),
+                    image = reading.image
                 )
                 val action =
                     QuestionsFragmentDirections.actionQuestionsFragmentToEndReadingFragment(

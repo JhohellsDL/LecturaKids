@@ -48,6 +48,7 @@ class EndReadingFragment : Fragment() {
         val level: Int = safeArgs.endingItem.level
         val percentage: Int = safeArgs.endingItem.percentage
         val answersCorrect: Int = safeArgs.endingItem.answersCorrect
+        val image: Int = safeArgs.endingItem.image
 
 
         when (score) {
@@ -67,6 +68,7 @@ class EndReadingFragment : Fragment() {
             }
         }
 
+        binding.readingImage.setImageResource(image)
         binding.textScore.text = String.format("%d pts", score)
         binding.txtTitleReading.text = title
         binding.textTime.text = Utils.convertSecondsTime(time)
