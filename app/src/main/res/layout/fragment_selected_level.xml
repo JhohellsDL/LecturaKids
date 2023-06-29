@@ -83,11 +83,12 @@
                         android:id="@+id/radioButtonLevelBeginner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/beginner"
+                        android:text="@string/principiante"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/textTitle2"
-                        tools:ignore="TextContrastCheck" />
+                        android:checked="true"
+                        android:button="@drawable/radio_button_selector"
+                        android:textColor="@color/textTitle2" />
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelIntermediate"
@@ -95,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@string/intermediate"
+                        android:text="@string/intermedio"
                         android:textColor="@color/textTitle2" />
 
                     <RadioButton
@@ -104,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@string/advanced"
+                        android:text="@string/avanzado"
                         android:textColor="@color/textTitle2" />
 
                 </RadioGroup>
