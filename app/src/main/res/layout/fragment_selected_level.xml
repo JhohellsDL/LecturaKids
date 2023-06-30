@@ -84,11 +84,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/principiante"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:checked="true"
-                        android:button="@drawable/radio_button_selector"
-                        android:textColor="@color/textTitle2" />
+                        android:buttonTintMode="multiply"
+                        android:textColor="@color/textTitle2"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelIntermediate"
