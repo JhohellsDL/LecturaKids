@@ -12,19 +12,17 @@
         android:background="@color/backgroundPrimary"
         android:padding="16dp">
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-8897050281816485/4332569351"
             ads:layout_constraintEnd_toEndOf="parent"
             ads:layout_constraintStart_toStartOf="parent"
-            ads:layout_constraintTop_toTopOf="parent"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-8897050281816485/4332569351">
-        </com.google.android.gms.ads.AdView>
+            ads:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
 
         <TextView
             android:id="@+id/label_title"
@@ -73,8 +71,8 @@
                     android:id="@+id/radioGroupLevels"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginEnd="32dp"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -83,32 +81,34 @@
                         android:id="@+id/radioButtonLevelBeginner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/principiante"
                         android:buttonTintMode="multiply"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:fontFamily="@font/montserrat"
-                        android:textColor="@color/textTitle"/>
+                        android:text="@string/principiante"
+                        android:textColor="@color/textTitle"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelIntermediate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:text="@string/intermedio"
+                        android:buttonTintMode="multiply"
                         android:fontFamily="@font/montserrat"
-                        android:textColor="@color/textTitle" />
+                        android:text="@string/intermedio"
+                        android:textColor="@color/textTitle"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelAdvanced"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:text="@string/avanzado"
+                        android:buttonTintMode="multiply"
                         android:fontFamily="@font/montserrat"
-                        android:textColor="@color/textTitle" />
+                        android:text="@string/avanzado"
+                        android:textColor="@color/textTitle"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </RadioGroup>
 
@@ -146,7 +146,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -158,9 +158,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/accent2"
-            android:textColor="@color/textTitle"
-            android:text="@string/reading_random"
             android:lines="2"
+            android:text="@string/reading_random"
+            android:textColor="@color/textTitle"
             app:layout_constraintBottom_toTopOf="@id/btnStartSelected"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -171,8 +171,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:backgroundTint="@color/colorAccent"
-            android:text="@string/reading_selected"
             android:lines="2"
+            android:text="@string/reading_selected"
             android:textColor="@color/textTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
