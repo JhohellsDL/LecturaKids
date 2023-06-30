@@ -42,7 +42,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_inicio"
+                android:background="@color/backgroundSecondary"
                 android:padding="16dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -72,7 +72,9 @@
                         android:text="@string/beginner"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/textTitle2"
+                        android:checked="true"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/textTitle"
                         tools:ignore="TextContrastCheck" />
 
                     <RadioButton
@@ -82,7 +84,8 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:text="@string/intermediate"
-                        android:textColor="@color/textTitle2" />
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/textTitle" />
 
                     <RadioButton
                         android:id="@+id/radioButtonLevelAdvanced"
@@ -91,7 +94,8 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:text="@string/advanced"
-                        android:textColor="@color/textTitle2" />
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/textTitle" />
 
                 </RadioGroup>
 
